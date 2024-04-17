@@ -1,6 +1,6 @@
 #pragma once
 
-#include "logging.h"
+#include "logging.hpp"
 #include <imgui.h>
 
 class Custom {

@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 
-#include "logging.h"
+#include "logging.hpp"
 #include "globals.cpp"
 #include "custom.cpp"
 
