@@ -4,7 +4,7 @@
 #include <imgui.h>
 
 class Custom {
-public:
+	public:
 		Custom();
 		~Custom();
 
@@ -24,6 +24,17 @@ Custom::~Custom() {
 
 void Custom::Render() {
 	ImGui::Begin("Custom window");
+
+	if (ImGui::CollapsingHeader("Log test")) {
+		if (ImGui::Button("INFO"))
+			LOG_INFO("Button pressed\n");
+
+		if (ImGui::Button("WARN"))
+			LOG_INFO("Button pressed\n");
+
+		if (ImGui::Button("ERROR"))
+			LOG_INFO("Button pressed\n");
+	}
 
 	ImGui::Text("Hello, world!");
 
