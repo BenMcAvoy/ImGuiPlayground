@@ -30,10 +30,10 @@ void Custom::Render() {
 			LOG_INFO("Button pressed\n");
 
 		if (ImGui::Button("WARN"))
-			LOG_INFO("Button pressed\n");
+			LOG_WARN("Button pressed\n");
 
 		if (ImGui::Button("ERROR"))
-			LOG_INFO("Button pressed\n");
+			LOG_ERROR("Button pressed\n");
 	}
 
 	ImGui::Text("Hello, world!");
