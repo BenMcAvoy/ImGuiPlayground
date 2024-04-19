@@ -15,11 +15,11 @@ Custom custom;
 int main(void) {
 	GLFWwindow* window;
 
-	/* Initialize the library */
+	// Initialize the library
 	if (!glfwInit())
 		return -1;
 
-	/* Create a windowed mode window and its OpenGL context */
+	// Create a windowed mode window and its OpenGL context
 	window = glfwCreateWindow(1280, 720, "GuiClass", NULL, NULL);
 
 	if (!window) {
@@ -30,12 +30,12 @@ int main(void) {
 
 	INFO("Window created\n");
 
-	/* Make the window's context current */
+	// Make the window's context current
 	glfwMakeContextCurrent(window);
 
 	INFO("Made context current\n");
 
-	/* Initialize ImGui */
+	// Initialize ImGui
 	IMGUI_CHECKVERSION();
 
 	INFO("ImGui version checked\n");
@@ -51,10 +51,10 @@ int main(void) {
 
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-	/* Setup Dear ImGui style */
+	// Setup Dear ImGui style
 	ImGui::StyleColorsDark();
 
-	/* Setup Platform/Renderer bindings */
+	// Setup Platform/Renderer bindings
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 130");
 
@@ -65,15 +65,14 @@ int main(void) {
 	bool showDemo = true;
 	bool init = true;
 
-	/* Loop until the user closes the window */
+	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(window) && !globals::shouldExit) {
-		/* Update code here */
+		// Update code here
 		custom.Update();
-		/* Update code end  */
 
 		glfwPollEvents();
 
-		/* Start the ImGui frame */
+		// Start the ImGui frame
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
@@ -83,7 +82,7 @@ int main(void) {
 			init = false;
 		}
 
-		/* Render code here */
+		// Render code here
 		custom.Render();
 
 		if (!custom.overwriteDefaultWindows) {
@@ -99,17 +98,16 @@ int main(void) {
 
 			ImGui::End();
 		}
-		/* Render code end  */
 
 		ImGui::Render();
 
-		/* Render OpenGL */
+		// Render OpenGL
 		glClear(GL_COLOR_BUFFER_BIT);
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 		glfwSwapBuffers(window);
 	}
 
-	/* Cleanup */
+	// Cleanup
 	glfwDestroyWindow(window);
 	INFO("Window destroyed\n");
 
