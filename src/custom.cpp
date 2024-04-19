@@ -15,11 +15,11 @@ public:
 };
 
 Custom::Custom() {
-	INFO("Custom class created\n");
+	LOG_INFO("Custom class created\n");
 }
 
 Custom::~Custom() {
-	INFO("Custom class destroyed\n");
+	LOG_INFO("Custom class destroyed\n");
 }
 
 void Custom::Render() {

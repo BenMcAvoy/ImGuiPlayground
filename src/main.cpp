@@ -27,31 +27,31 @@ int main(void) {
 	window = glfwCreateWindow(1280, 720, "GuiClass", NULL, NULL);
 
 	if (!window) {
-		ERROR("Failed to create window");
+		LOG_ERROR("Failed to create window");
 		glfwTerminate();
 		return -1;
 	}
 
-	INFO("Window created\n");
+	LOG_INFO("Window created\n");
 
 	// Make the window's context current
 	glfwMakeContextCurrent(window);
 
-	INFO("Made context current\n");
+	LOG_INFO("Made context current\n");
 
 	// Initialize ImGui
 	IMGUI_CHECKVERSION();
 
-	INFO("ImGui version checked\n");
+	LOG_INFO("ImGui version checked\n");
 
-	INFO("OpenGL version: %s\n", glGetString(GL_VERSION));
-	INFO("GLSL version: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
-	INFO("Renderer: %s\n", glGetString(GL_RENDERER));
-	INFO("GLFW version: %s\n", glfwGetVersionString());
-	INFO("ImGui version: %s\n", IMGUI_VERSION);
+	LOG_INFO("OpenGL version: %s\n", glGetString(GL_VERSION));
+	LOG_INFO("GLSL version: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
+	LOG_INFO("Renderer: %s\n", glGetString(GL_RENDERER));
+	LOG_INFO("GLFW version: %s\n", glfwGetVersionString());
+	LOG_INFO("ImGui version: %s\n", IMGUI_VERSION);
 
 	ImGui::CreateContext();
-	INFO("ImGui context created\n");
+	LOG_INFO("ImGui context created\n");
 
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 
@@ -62,7 +62,7 @@ int main(void) {
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 130");
 
-	INFO("ImGui initialized\n");
+	LOG_INFO("ImGui initialized\n");
 
 	ImGui::SetNextWindowSize(ImVec2(128, 128));
 
@@ -113,10 +113,10 @@ int main(void) {
 
 	// Cleanup
 	glfwDestroyWindow(window);
-	INFO("Window destroyed\n");
+	LOG_INFO("Window destroyed\n");
 
 	glfwTerminate();
-	INFO("GLFW terminated\n");
+	LOG_INFO("GLFW terminated\n");
 
 	return 0;
 }
