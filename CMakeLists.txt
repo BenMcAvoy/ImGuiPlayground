@@ -32,3 +32,17 @@ include_directories(${PROJECT_SOURCE_DIR})
 # Link with OpenGL
 find_package(OpenGL REQUIRED)
 target_link_libraries(ImGuiPlayground OpenGL::GL)
+
+if (UNIX)
+	# Enable all warnings and treat them as errors
+	target_compile_options(ImGuiPlayground PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()
+
+if (MSVC)
+	# Enable all warnings and treat them as errors
+	target_compile_options(ImGuiPlayground PRIVATE /W4 /WX)
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_compile_definitions(DEBUG)
+endif()

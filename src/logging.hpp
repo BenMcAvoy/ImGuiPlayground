@@ -20,12 +20,22 @@
 	printf(__VA_ARGS__); \
 }
 
+#ifdef DEBUG
+#define LOG_DEBUG(...) { \
+	SYSTEMTIME st; \
+	GetLocalTime(&st); \
+	SETCOLOR(11); printf("[%02d:%02d:%02d.%03d] ", st.wHour, st.wMinute, st.wSecond, st.wMilliseconds); SETCOLOR(7); \
+	printf(__VA_ARGS__); \
+}
+#else
 #define LOG_ERROR(...) { \
 	SYSTEMTIME st; \
 	GetLocalTime(&st); \
 	SETCOLOR(12); printf("[%02d:%02d:%02d.%03d] ", st.wHour, st.wMinute, st.wSecond, st.wMilliseconds); SETCOLOR(7); \
 	printf(__VA_ARGS__); \
+	MessageBoxA(NULL, __VA_ARGS__, "Error", MB_ICONERROR); \
 }
+#endif
 
 #elif __linux__
 
