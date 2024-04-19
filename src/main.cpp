@@ -45,7 +45,11 @@ int main(void) {
 	LOG_INFO("ImGui version checked\n");
 
 	LOG_INFO("OpenGL version: %s\n", glGetString(GL_VERSION));
+
+#ifdef __linux__
 	LOG_INFO("GLSL version: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
+#endif
+
 	LOG_INFO("Renderer: %s\n", glGetString(GL_RENDERER));
 	LOG_INFO("GLFW version: %s\n", glfwGetVersionString());
 	LOG_INFO("ImGui version: %s\n", IMGUI_VERSION);
