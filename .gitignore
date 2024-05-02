@@ -4,3 +4,6 @@ build
 
 # ImGui position saving
 imgui.ini
+
+# VSCode
+.vscode
