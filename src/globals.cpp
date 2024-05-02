@@ -1,5 +1,5 @@
 #pragma once
 
 namespace globals {
-	bool shouldExit = false;
+bool shouldExit = false;
 }
