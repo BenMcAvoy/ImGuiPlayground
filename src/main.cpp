@@ -12,9 +12,6 @@
 
 #include "logging.hpp"
 #include "globals.cpp"
-#include "custom.cpp"
-
-Custom custom;
 
 int main(void) {
 	GLFWwindow* window;
@@ -76,7 +73,6 @@ int main(void) {
 	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(window) && !globals::shouldExit) {
 		// Update code here
-		custom.Update();
 
 		glfwPollEvents();
 
@@ -91,21 +87,17 @@ int main(void) {
 		}
 
 		// Render code here
-		custom.Render();
+		ImGui::Begin("ImGui playground");
 
-		if (!custom.overwriteDefaultWindows) {
-			ImGui::Begin("ImGui playground");
+		if (ImGui::Button("Exit"))
+			globals::shouldExit = true;
 
-			if (ImGui::Button("Exit"))
-				globals::shouldExit = true;
+		ImGui::Checkbox("Demo window", &showDemo);
 
-			ImGui::Checkbox("Demo window", &showDemo);
+		if (showDemo)
+			ImGui::ShowDemoWindow(&showDemo);
 
-			if (showDemo)
-				ImGui::ShowDemoWindow(&showDemo);
-
-			ImGui::End();
-		}
+		ImGui::End();
 
 		ImGui::Render();
 
