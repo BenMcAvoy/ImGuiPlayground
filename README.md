@@ -6,6 +6,11 @@ Code should be put in the `src/custom.cpp` file. It also has a variable called `
 
 The `src/main.cpp` file is the entry point of the application.
 
+## Usage
+Press `Use this template` > `Create a new repository` and name it. It is recommend that your repository be public as if you make it private you will either have to configure the todo issue to use a token or remove it.
+
+It is also recommend to rename the project, this can be done by going into `CMakeLists.txt` in the root of the project and changing the project name by doing a find and replace for `ImGuiPlayground` and replacing it with your project name. You can change the project target to execute automatically in the `Makefile` and you can also rename the window at the top of `src/main.cpp` in the `createWindow` function call.
+
 ## Building
 You can build the project using [CMake](https://cmake.org/). Here is how you can build the project:
 ```bash
